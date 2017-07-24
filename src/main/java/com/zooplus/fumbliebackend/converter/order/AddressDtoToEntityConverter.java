@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class AddressDtoToEntityConverter implements Converter<AddressDto, Address> {
     @Override
-    public Address convert(AddressDto dto) {
+    public Address convert(final AddressDto dto) {
         if (dto == null) return null;
 
         Address address = new Address();

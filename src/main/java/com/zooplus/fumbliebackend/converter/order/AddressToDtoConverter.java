@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class AddressToDtoConverter implements Converter<Address, AddressDto> {
     @Override
-    public AddressDto convert(Address address) {
+    public AddressDto convert(final Address address) {
         if (address == null) return null;
 
         AddressDto dto = new AddressDto();

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class ProductToProductDtoConverter implements Converter<Product, ProductDto> {
 
     @Override
-    public ProductDto convert(Product product) {
+    public ProductDto convert(final Product product) {
         if (product == null) {
             return null;
         }

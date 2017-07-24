@@ -18,7 +18,7 @@ public class OrderController {
 
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     public ResponseEntity<?> placeOrder(@RequestBody final OrderDto orderDto) {
-        return new ResponseEntity<>(orderService.placeOrder(orderDto), HttpStatus.OK);
+        return new ResponseEntity<>(orderService.placeOrder(orderDto), HttpStatus.CREATED);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{orderId}", produces = "application/json")
