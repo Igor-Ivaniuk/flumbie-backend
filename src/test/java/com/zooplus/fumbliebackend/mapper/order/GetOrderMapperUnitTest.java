@@ -1,6 +1,5 @@
-package com.zooplus.fumbliebackend.mapper;
+package com.zooplus.fumbliebackend.mapper.order;
 
-import com.zooplus.fumbliebackend.mapper.order.GetOrderMapper;
 import com.zooplus.fumbliebackend.model.dto.getOrder.GetOrderOrderDto;
 import com.zooplus.fumbliebackend.model.entity.Address;
 import com.zooplus.fumbliebackend.model.entity.Order;
