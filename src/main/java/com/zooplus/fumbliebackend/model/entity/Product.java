@@ -15,8 +15,16 @@ public class Product {
     @GeneratedValue
     @Column(name = "product_id")
     private Long id;
+
+    @Column
     private String title;
+
+    @Column
     private String description;
+
+    @Column
     private String image;
+
+    @Column
     private Double price;
 }
