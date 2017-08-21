@@ -1,9 +1,9 @@
-package com.zooplus.fumbliebackend.model.dto;
+package com.zooplus.fumbliebackend.model.dto.getOrder;
 
 import lombok.Data;
 
 @Data
-public class AddressDto {
+public class GetOrderAddressDto {
     private Long id;
 
     private String name;

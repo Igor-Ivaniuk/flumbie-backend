@@ -1,6 +1,6 @@
 package com.zooplus.fumbliebackend.controller;
 
-import com.zooplus.fumbliebackend.model.dto.OrderDto;
+import com.zooplus.fumbliebackend.model.dto.placeOrder.PlaceOrderOrderDto;
 import com.zooplus.fumbliebackend.service.OrderService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +17,7 @@ public class OrderController {
 
 
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
-    public ResponseEntity<?> placeOrder(@RequestBody final OrderDto orderDto) {
+    public ResponseEntity<?> placeOrder(@RequestBody final PlaceOrderOrderDto orderDto) {
         return new ResponseEntity<>(orderService.placeOrder(orderDto), HttpStatus.CREATED);
     }
 

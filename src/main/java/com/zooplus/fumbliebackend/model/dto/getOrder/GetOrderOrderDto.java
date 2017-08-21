@@ -1,4 +1,4 @@
-package com.zooplus.fumbliebackend.model.dto;
+package com.zooplus.fumbliebackend.model.dto.getOrder;
 
 import lombok.Data;
 
@@ -7,14 +7,14 @@ import java.util.Currency;
 import java.util.List;
 
 @Data
-public class OrderDto {
+public class GetOrderOrderDto {
     private Long id;
 
-    private List<OrderItemDto> orderItems;
+    private List<GetOrderOrderItemDto> orderItems;
 
     private BigDecimal totalAmount;
 
     private Currency currency;
 
-    private AddressDto address;
+    private GetOrderAddressDto address;
 }

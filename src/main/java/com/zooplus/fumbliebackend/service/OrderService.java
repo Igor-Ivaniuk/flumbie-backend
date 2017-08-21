@@ -1,8 +1,9 @@
 package com.zooplus.fumbliebackend.service;
 
-import com.zooplus.fumbliebackend.converter.order.OrderDtoToEntityConverter;
-import com.zooplus.fumbliebackend.converter.order.OrderToDtoConverter;
-import com.zooplus.fumbliebackend.model.dto.OrderDto;
+import com.zooplus.fumbliebackend.mapper.order.GetOrderMapper;
+import com.zooplus.fumbliebackend.mapper.order.PlaceOrderMapper;
+import com.zooplus.fumbliebackend.model.dto.getOrder.GetOrderOrderDto;
+import com.zooplus.fumbliebackend.model.dto.placeOrder.PlaceOrderOrderDto;
 import com.zooplus.fumbliebackend.model.entity.Order;
 import com.zooplus.fumbliebackend.repo.OrderRepository;
 import org.springframework.stereotype.Service;
@@ -15,21 +16,16 @@ public class OrderService {
     @Resource
     OrderRepository orderRepository;
 
-    @Resource
-    OrderToDtoConverter orderToDtoConverter;
-    @Resource
-    OrderDtoToEntityConverter orderDtoToEntityConverter;
-
     @Transactional
-    public OrderDto placeOrder(OrderDto orderDto) {
-        Order order = orderDtoToEntityConverter.convert(orderDto);
+    public GetOrderOrderDto placeOrder(PlaceOrderOrderDto orderDto) {
+        Order order = PlaceOrderMapper.INSTANCE.mapToOrderEntity(orderDto);
 
         order = orderRepository.save(order);
 
-        return orderToDtoConverter.convert(order);
+        return GetOrderMapper.INSTANCE.mapOrderFromEntity(order);
     }
 
-    public OrderDto findById(long orderId) {
-        return orderToDtoConverter.convert(orderRepository.findOne(orderId));
+    public GetOrderOrderDto findById(long orderId) {
+        return GetOrderMapper.INSTANCE.mapOrderFromEntity(orderRepository.findOne(orderId));
     }
 }
