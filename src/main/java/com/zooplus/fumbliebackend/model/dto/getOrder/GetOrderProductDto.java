@@ -1,5 +1,6 @@
 package com.zooplus.fumbliebackend.model.dto.getOrder;
 
+import io.swagger.annotations.ApiModel;
 import lombok.*;
 
 @Data
@@ -7,6 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
+@ApiModel
 public class GetOrderProductDto {
 
     private Long id;
