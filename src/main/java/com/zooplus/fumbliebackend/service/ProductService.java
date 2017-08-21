@@ -3,6 +3,7 @@ package com.zooplus.fumbliebackend.service;
 
 import com.zooplus.fumbliebackend.error.exception.InvalidProductIdException;
 import com.zooplus.fumbliebackend.error.exception.ProductNotFoundException;
+import com.zooplus.fumbliebackend.mapper.product.ProductMapper;
 import com.zooplus.fumbliebackend.message.product.ProductResponse;
 import com.zooplus.fumbliebackend.message.product.ProductsResponse;
 import com.zooplus.fumbliebackend.model.dto.ProductDto;
@@ -22,16 +23,12 @@ public class ProductService {
     @Resource
     private ProductRepo productRepo;
 
-    @Resource
-    private Converter<Product, ProductDto> productToProductDtoConverter;
-
-
     public ProductsResponse getAllProducts(){
         List<Product> products = (List<Product>) productRepo.findAll();
         List<ProductDto> productDtos = new ArrayList<>();
 
         for(Product product : products)
-            productDtos.add(productToProductDtoConverter.convert(product));
+            productDtos.add(ProductMapper.INSTANCE.productToProductDto(product));
 
         ProductsResponse response = new ProductsResponse();
         response.setProducts(productDtos);
@@ -51,7 +48,7 @@ public class ProductService {
         Product product = productRepo.findOne(id);
 
         if(product != null)
-            return new ProductResponse(productToProductDtoConverter.convert(product));
+            return new ProductResponse(ProductMapper.INSTANCE.productToProductDto(product));
 
         throw new ProductNotFoundException(productId);
     }
