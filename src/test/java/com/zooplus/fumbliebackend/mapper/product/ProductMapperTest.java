@@ -27,7 +27,7 @@ public class ProductMapperTest {
     }
 
     @Test
-    public void shouldMapproductToProductDto() throws Exception {
+    public void shouldMapProductToProductDto() throws Exception {
         Product product = prepareProduct();
 
         ProductDto productDto = ProductMapper.INSTANCE.productToProductDto(product);
@@ -41,7 +41,7 @@ public class ProductMapperTest {
     }
 
     @Test
-    public void shouldMapproductDtoToProduct() throws Exception {
+    public void shouldMapProductDtoToProduct() throws Exception {
         ProductDto productDto = prepareProductDto();
 
         Product product = ProductMapper.INSTANCE.productDtoToProduct(productDto);
